@@ -50,7 +50,10 @@ public class ClientService {
 		return new ClientDTO(entity);
 	}
 	
-	
+	@Transactional
+	public void delete(Long id) {
+		clientRepo.deleteById(id);
+	}
 	
 	
 	private void copyDtoToEntity(ClientDTO dto, Client entity) {
