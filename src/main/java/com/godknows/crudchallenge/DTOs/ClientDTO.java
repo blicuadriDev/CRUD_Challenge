@@ -4,12 +4,17 @@ import java.time.LocalDate;
 
 import com.godknows.crudchallenge.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class ClientDTO {
 	
 	private Long id;
+	@NotBlank(message = "Nome não pode ser vazio")
 	private String name;
 	private String cpf;
 	private Double income;
+	@PastOrPresent(message = "Data não pode ser futura")
 	private LocalDate birthDate;
 	private Integer children;
 	
